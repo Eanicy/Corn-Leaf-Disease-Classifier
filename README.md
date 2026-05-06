@@ -171,10 +171,7 @@ corndoctor/
 
 ## 🔮 Coming Soon
 
-🚀 **Multi-model choice** — Compare different AI models  
-🎯 **Object detection** — Shows exactly WHERE the disease is  
 💬 **Better chatbot** — More natural conversations  
-🍎 **iOS support** — Works on iPhones too  
 
 ---
 
@@ -247,31 +244,3 @@ The app uses a technique called **transfer learning**:
 **Key Feature:** If confidence is below 60%, the app rejects it and asks for a better photo. This prevents wrong guesses.
 
 ---
-
-## 🤝 Help Us Improve
-
-Have suggestions? Found a bug? Want to add features?
-
-**You can help by:**
-- 📸 Sharing your corn photos to improve the model
-- 🐛 Reporting bugs you find
-- 💡 Suggesting new features
-- 📢 Spreading the word
-
----
-
-## 📄 License
-
-This project is open source and free to use.
-
----
-
-## 📧 Questions?
-
-Email: [your.email@example.com]
-
----
-
-**Made with ❤️ for farmers and corn growers**
-
-🌽 CornDoctor — Healthier crops, better harvests 🌽
