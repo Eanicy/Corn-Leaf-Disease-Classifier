@@ -1,0 +1,46 @@
+{
+  "diseases": [
+    {
+      "name": "Blight",
+      "context": "Corn blight is a fungal disease that affects corn leaves and stalks. Symptoms include elongated lesions with tan centers and dark borders appearing on lower leaves first. The disease thrives in warm, wet conditions and can spread rapidly. Treatment involves applying fungicides like azoxystrobin or pyraclostrobin at the first sign of infection. Prevention includes crop rotation, removing infected residue, and using resistant varieties. Early detection is critical for effective management. The disease can cause significant yield loss if left untreated."
+    },
+    {
+      "name": "Common_Rust",
+      "context": "Common rust is a fungal disease that produces small, circular reddish-brown pustules on corn leaf surfaces. The disease appears throughout the growing season and spreads via airborne spores. Symptoms start on lower leaves and progress upward. The fungus requires living tissue and dies with frost. Management strategies include planting resistant hybrids, applying foliar fungicides when pustules appear, and maintaining good field sanitation. Chemical control with fungicides like azoxystrobin is effective. The disease rarely causes complete crop failure but can reduce photosynthesis and yield. Spore spread increases in humid conditions with temperatures between 60-75°F."
+    },
+    {
+      "name": "Gray_Leaf_Spot",
+      "context": "Gray leaf spot is a serious fungal disease caused by Cercospora zeae-maydis. The disease produces rectangular lesions with gray centers and brown borders on corn leaves. Symptoms first appear on lower leaves and progress upward as the season advances. The fungus overwinters on corn residue and spreads via rain splash and air currents. Prevention is the best strategy and includes crop rotation, burying infected residue, using resistant varieties, and removing lower leaves if necessary. Fungicide applications with products containing pyraclostrobin or flutriafol are effective when applied early. Disease pressure increases in warm, wet conditions. Yield losses can be substantial in susceptible varieties."
+    },
+    {
+      "name": "Healthy",
+      "context": "Healthy corn leaves show normal green coloration with no spots, lesions, or discoloration. Healthy plants have vigorous growth, erect leaves, and strong stem structure. A healthy corn plant efficiently absorbs sunlight for photosynthesis and produces good yields. Proper management maintains plant health through adequate water, nutrients, pest control, and disease prevention. Regular scouting helps catch any disease early. Maintaining healthy crops requires proper hybrid selection, field preparation, timely planting, weed management, and integrated pest management. Good agronomic practices and environmental monitoring support long-term crop health and productivity."
+    }
+  ],
+  "faq": [
+    {
+      "question": "What causes corn leaf diseases?",
+      "answer": "Corn leaf diseases are primarily caused by fungi that thrive in warm, wet conditions. Fungal spores spread through wind, rain splash, and infected plant debris. Poor field sanitation and monoculture cropping increase disease pressure."
+    },
+    {
+      "question": "How can I prevent corn diseases?",
+      "answer": "Prevention strategies include: crop rotation with non-host crops, removing infected plant residue, using disease-resistant hybrid varieties, maintaining good field sanitation, and scouting fields regularly for early detection."
+    },
+    {
+      "question": "When should I apply fungicides?",
+      "answer": "Apply fungicides at the first sign of disease symptoms, typically during the growth stages V6 to R1. Follow label instructions and reapply every 10-14 days if wet conditions persist. Preventive applications work better than curative ones."
+    },
+    {
+      "question": "What fungicides work best?",
+      "answer": "Effective fungicides include azoxystrobin (Quadris), pyraclostrobin (Headline), flutriafol (Prosaro), and trifloxystrobin combinations. Rotate between fungicide classes to prevent resistance. Always follow label instructions and local regulations."
+    },
+    {
+      "question": "How do I scout for corn diseases?",
+      "answer": "Scout fields weekly during the growing season. Walk diagonal patterns across the field, checking leaves on multiple plants. Look for spots, lesions, discoloration, or unusual patterns. Note disease location, severity, and weather conditions."
+    },
+    {
+      "question": "Can resistant varieties prevent disease?",
+      "answer": "Yes, planting resistant hybrid varieties is one of the most effective long-term disease management strategies. Check seed catalogs for disease ratings and select varieties with resistance to diseases prevalent in your area."
+    }
+  ]
+}

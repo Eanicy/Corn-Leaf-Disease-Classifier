@@ -1,0 +1,42 @@
+name: corndoctor
+description: CornDoctor - Diagnose corn leaf diseases instantly with AI.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Camera and image handling
+  camera: ^0.11.0
+  image_picker: ^1.0.0
+
+  # TFLite model inference
+  tflite_flutter: ^0.12.1
+
+  # Image processing
+  image: ^4.0.0
+
+  # State management
+  provider: ^6.0.0
+
+  # UI components
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/models/corn_disease_classifier.tflite
+    - assets/models/labels.json
+    - assets/data/disease_knowledge.json
