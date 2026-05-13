@@ -2,45 +2,93 @@
   "diseases": [
     {
       "name": "Blight",
-      "context": "Corn blight is a fungal disease that affects corn leaves and stalks. Symptoms include elongated lesions with tan centers and dark borders appearing on lower leaves first. The disease thrives in warm, wet conditions and can spread rapidly. Treatment involves applying fungicides like azoxystrobin or pyraclostrobin at the first sign of infection. Prevention includes crop rotation, removing infected residue, and using resistant varieties. Early detection is critical for effective management. The disease can cause significant yield loss if left untreated."
+      "overview": "Northern Corn Leaf Blight is a fungal disease caused by Exserohilum turcicum. It produces long, cigar-shaped gray-green to tan lesions on corn leaves. It thrives in warm (64-81 F), wet conditions and can cause significant yield loss if not managed early.",
+      "symptoms": "Long, elliptical, cigar-shaped lesions appear on leaves, typically 1-6 inches long. Lesions are gray-green at first, then turn tan as they mature. They usually appear on lower leaves first and spread upward. Severe infections cause leaves to look burned or scorched.",
+      "treatment": "Apply foliar fungicides like azoxystrobin (Quadris), pyraclostrobin (Headline), or propiconazole at the first sign of lesions, especially between V8 and tasseling. Reapply every 10-14 days if conditions remain wet. Combine with cultural controls — do not rely on fungicides alone.",
+      "prevention": "Plant resistant hybrids (look for Ht1, Ht2, Ht3, or HtN genes). Rotate corn with non-host crops like soybeans for at least one year. Bury or destroy infected crop residue through tillage. Avoid overhead irrigation in late afternoon.",
+      "causes": "Caused by the fungus Exserohilum turcicum. Spores survive on corn residue and spread by wind and rain splash. Disease pressure increases in cool, wet weather with prolonged leaf wetness (6+ hours) and moderate temperatures of 64-81 F.",
+      "fungicides": "Effective fungicides for Blight include azoxystrobin (Quadris), pyraclostrobin (Headline), propiconazole (Tilt), and trifloxystrobin + prothioconazole (Stratego YLD). Apply at VT-R1 growth stage for best results. Rotate fungicide modes of action to prevent resistance.",
+      "severity": "Blight can reduce yield by 30-50% in susceptible hybrids when infection occurs before tasseling. Late-season infection (after R3) usually causes minimal yield loss. Severity depends on hybrid resistance, weather, and timing of infection."
     },
     {
       "name": "Common_Rust",
-      "context": "Common rust is a fungal disease that produces small, circular reddish-brown pustules on corn leaf surfaces. The disease appears throughout the growing season and spreads via airborne spores. Symptoms start on lower leaves and progress upward. The fungus requires living tissue and dies with frost. Management strategies include planting resistant hybrids, applying foliar fungicides when pustules appear, and maintaining good field sanitation. Chemical control with fungicides like azoxystrobin is effective. The disease rarely causes complete crop failure but can reduce photosynthesis and yield. Spore spread increases in humid conditions with temperatures between 60-75°F."
+      "overview": "Common rust is a fungal disease caused by Puccinia sorghi. It produces small, circular to elongated reddish-brown pustules on both upper and lower leaf surfaces. The disease rarely causes major yield loss in dent corn but can be serious in sweet corn and seed corn.",
+      "symptoms": "Small (1/8 inch), oval to elongated, cinnamon-brown to reddish-brown pustules appear on both leaf surfaces. Pustules rupture to release powdery spores. Severely infected leaves may turn yellow and die prematurely. Pustules can appear on any green plant tissue.",
+      "treatment": "Most field corn hybrids have adequate resistance, so fungicide treatment is rarely needed. For sweet corn or seed corn, apply azoxystrobin, pyraclostrobin, or mancozeb when pustules first appear, typically before tasseling. Reapply every 7-14 days if conditions favor disease.",
+      "prevention": "Plant resistant or tolerant hybrids — most dent corn hybrids are resistant. Avoid planting susceptible sweet corn varieties in areas with heavy rust pressure. Early planting can help crops mature before peak rust pressure. Crop rotation has limited effect since spores blow in from southern regions.",
+      "causes": "Caused by the fungus Puccinia sorghi. Spores do not overwinter in most of North America — they blow in on wind currents from tropical regions. Cool (60-77 F), wet weather with heavy dew favors infection. Spores germinate in 6 hours of leaf wetness.",
+      "fungicides": "Effective fungicides for Common Rust include azoxystrobin (Quadris), pyraclostrobin (Headline), mancozeb, and chlorothalonil. Apply at the first sign of pustules. For sweet corn, multiple applications at 7-14 day intervals may be needed.",
+      "severity": "Common rust rarely causes significant yield loss in field corn due to widespread genetic resistance. In sweet corn or seed corn, severe infections before silking can reduce yields by 10-25%. Late infections after dent stage usually cause minimal damage."
     },
     {
       "name": "Gray_Leaf_Spot",
-      "context": "Gray leaf spot is a serious fungal disease caused by Cercospora zeae-maydis. The disease produces rectangular lesions with gray centers and brown borders on corn leaves. Symptoms first appear on lower leaves and progress upward as the season advances. The fungus overwinters on corn residue and spreads via rain splash and air currents. Prevention is the best strategy and includes crop rotation, burying infected residue, using resistant varieties, and removing lower leaves if necessary. Fungicide applications with products containing pyraclostrobin or flutriafol are effective when applied early. Disease pressure increases in warm, wet conditions. Yield losses can be substantial in susceptible varieties."
+      "overview": "Gray leaf spot is a serious fungal disease caused by Cercospora zeae-maydis. It produces distinctive rectangular gray to tan lesions confined by leaf veins. It is one of the most damaging corn diseases worldwide, especially in continuous-corn fields.",
+      "symptoms": "Rectangular, gray to tan lesions appear on leaves, typically 1/8 to 2 inches long. Lesions are confined by leaf veins, giving them a distinct rectangular shape. They first appear as small, water-soaked spots that elongate parallel to the veins. Lower leaves are affected first.",
+      "treatment": "Apply foliar fungicides such as pyraclostrobin (Headline), azoxystrobin (Quadris), or flutriafol when lesions first appear on lower leaves, ideally between V12 and R2. A single well-timed application at VT-R1 is most effective. Reapply if disease pressure remains high.",
+      "prevention": "Plant resistant hybrids with good gray leaf spot ratings (4 or higher on most scales). Rotate corn with at least one year of non-host crop. Use tillage to bury infected residue. Avoid continuous corn in fields with a history of gray leaf spot.",
+      "causes": "Caused by Cercospora zeae-maydis fungus. Spores survive on corn residue at the soil surface and spread by wind and rain splash. Warm (75-85 F), humid conditions with prolonged leaf wetness favor infection. Continuous corn fields with reduced tillage are at highest risk.",
+      "fungicides": "Effective fungicides for Gray Leaf Spot include pyraclostrobin (Headline AMP), azoxystrobin + propiconazole (Quilt Xcel), flutriafol (Topguard), and trifloxystrobin + prothioconazole (Stratego YLD). Apply at VT-R1 for maximum return on investment.",
+      "severity": "Gray leaf spot can cause yield losses of 5-40% depending on hybrid susceptibility, weather, and disease onset timing. Infections before silking are most damaging. Continuous corn fields with susceptible hybrids in warm humid climates suffer the heaviest losses."
     },
     {
       "name": "Healthy",
-      "context": "Healthy corn leaves show normal green coloration with no spots, lesions, or discoloration. Healthy plants have vigorous growth, erect leaves, and strong stem structure. A healthy corn plant efficiently absorbs sunlight for photosynthesis and produces good yields. Proper management maintains plant health through adequate water, nutrients, pest control, and disease prevention. Regular scouting helps catch any disease early. Maintaining healthy crops requires proper hybrid selection, field preparation, timely planting, weed management, and integrated pest management. Good agronomic practices and environmental monitoring support long-term crop health and productivity."
+      "overview": "A healthy corn plant has uniformly green leaves with no spots, lesions, or discoloration. Healthy plants show vigorous growth, erect leaves, and strong stem structure. Maintaining healthy crops requires proper hybrid selection, balanced nutrition, and integrated pest management.",
+      "symptoms": "Healthy corn leaves are uniformly green with no spots, pustules, lesions, or yellowing. Leaves are firm and erect, not wilted or curled. Plants show steady growth, strong root systems, and uniform stand. No fungal growth, insect damage, or nutrient deficiency symptoms are visible.",
+      "treatment": "No treatment is needed for healthy corn. Continue routine scouting weekly during the growing season to catch any disease or pest issues early. Maintain good agronomic practices: balanced fertility, proper irrigation, weed control, and integrated pest management.",
+      "prevention": "Maintain crop health through hybrid selection (choose disease-resistant varieties), crop rotation, balanced fertility based on soil tests, weed and pest management, and timely planting. Scout fields weekly. Manage residue properly to break disease cycles.",
+      "causes": "Plant health results from proper management: selecting locally adapted hybrids, planting at the right time and depth, providing balanced nutrition (especially N, P, K, and micronutrients), controlling weeds and pests, and avoiding stress from drought or compaction.",
+      "fungicides": "Preventive fungicides are usually not cost-effective on healthy fields unless disease pressure is high in the area. Some growers apply a fungicide at VT-R1 as insurance against late-season diseases. Scout first — only spray when economic thresholds are met.",
+      "severity": "Healthy corn plants have the highest yield potential. Maintaining health through the grain-fill period (R3-R5) is critical — diseases or stress during this stage cause the most yield loss. Regular scouting and timely intervention preserve health and yield."
     }
   ],
   "faq": [
     {
       "question": "What causes corn leaf diseases?",
-      "answer": "Corn leaf diseases are primarily caused by fungi that thrive in warm, wet conditions. Fungal spores spread through wind, rain splash, and infected plant debris. Poor field sanitation and monoculture cropping increase disease pressure."
+      "answer": "Corn leaf diseases are mostly caused by fungi (like Exserohilum, Puccinia, and Cercospora species) that thrive in warm, wet conditions. Spores spread through wind, rain splash, and infected crop residue. Continuous corn cropping, dense canopies, and prolonged leaf wetness all increase disease pressure."
     },
     {
       "question": "How can I prevent corn diseases?",
-      "answer": "Prevention strategies include: crop rotation with non-host crops, removing infected plant residue, using disease-resistant hybrid varieties, maintaining good field sanitation, and scouting fields regularly for early detection."
+      "answer": "Prevention strategies include: (1) planting disease-resistant hybrids, (2) rotating corn with non-host crops like soybeans, (3) tilling under or removing infected residue, (4) scouting fields weekly for early detection, (5) avoiding excessive nitrogen which delays maturity, and (6) maintaining balanced plant nutrition."
     },
     {
       "question": "When should I apply fungicides?",
-      "answer": "Apply fungicides at the first sign of disease symptoms, typically during the growth stages V6 to R1. Follow label instructions and reapply every 10-14 days if wet conditions persist. Preventive applications work better than curative ones."
+      "answer": "Apply fungicides at the first sign of disease symptoms on lower leaves, or preventively at the VT-R1 growth stage (tasseling to silking). This single well-timed application typically gives the best return on investment. Reapply 10-14 days later if wet conditions persist. Preventive applications work better than curative ones."
     },
     {
       "question": "What fungicides work best?",
-      "answer": "Effective fungicides include azoxystrobin (Quadris), pyraclostrobin (Headline), flutriafol (Prosaro), and trifloxystrobin combinations. Rotate between fungicide classes to prevent resistance. Always follow label instructions and local regulations."
+      "answer": "Top-performing fungicides include azoxystrobin (Quadris), pyraclostrobin (Headline), propiconazole (Tilt), flutriafol (Topguard), and combination products like Quilt Xcel and Stratego YLD. Rotate between fungicide modes of action (strobilurins, triazoles) to delay resistance. Always read and follow label instructions."
     },
     {
       "question": "How do I scout for corn diseases?",
-      "answer": "Scout fields weekly during the growing season. Walk diagonal patterns across the field, checking leaves on multiple plants. Look for spots, lesions, discoloration, or unusual patterns. Note disease location, severity, and weather conditions."
+      "answer": "Scout fields weekly from V6 through R4. Walk a zigzag pattern across the field, stopping at 5-10 locations. At each stop, examine 10 plants — check lower, middle, and upper leaves for spots, lesions, or discoloration. Note disease type, severity, growth stage, and weather. Use a hand lens to confirm identification."
     },
     {
       "question": "Can resistant varieties prevent disease?",
-      "answer": "Yes, planting resistant hybrid varieties is one of the most effective long-term disease management strategies. Check seed catalogs for disease ratings and select varieties with resistance to diseases prevalent in your area."
+      "answer": "Yes, planting resistant hybrids is one of the most cost-effective long-term disease management strategies. Check seed catalogs for disease ratings (usually 1-9 scale, higher is better) and choose hybrids with resistance to the diseases prevalent in your area. No single hybrid resists all diseases, so match the hybrid to your local disease pressure."
+    },
+    {
+      "question": "What is the best growth stage to spray fungicide?",
+      "answer": "The VT-R1 stage (tasseling through silking) is generally the most economically effective time to apply fungicide. This timing protects the ear leaf and upper canopy during grain fill, which is critical for yield. Earlier applications (V6-V8) may be needed if disease pressure is severe."
+    },
+    {
+      "question": "How does weather affect corn diseases?",
+      "answer": "Most corn fungal diseases thrive in warm (60-85 F), humid conditions with prolonged leaf wetness (6+ hours). Heavy dew, frequent rain, and dense canopies all promote infection. Hot, dry weather slows disease spread. Monitor weather forecasts to time fungicide applications before favorable disease conditions develop."
+    },
+    {
+      "question": "Should I rotate crops to manage disease?",
+      "answer": "Yes. Rotating corn with non-host crops like soybeans, wheat, or alfalfa for at least one year breaks the disease cycle by depriving fungi of host tissue. Crop rotation is especially important for gray leaf spot and northern leaf blight, which survive on corn residue."
+    },
+    {
+      "question": "How do I identify which disease I have?",
+      "answer": "Look at lesion shape, color, and location. Long cigar-shaped tan lesions = Northern Leaf Blight. Small reddish-brown pustules on both leaf surfaces = Common Rust. Rectangular gray lesions confined by veins = Gray Leaf Spot. Use the app's image classifier or consult your local extension office for confirmation."
+    },
+    {
+      "question": "Is one fungicide application enough?",
+      "answer": "Usually one well-timed application at VT-R1 is sufficient for most field corn. However, severe early infection, very susceptible hybrids, or prolonged wet weather may require a second application 10-14 days later. Weigh treatment cost against expected yield protection — typically a 4-7 bushel yield response is needed to break even."
+    },
+    {
+      "question": "Can I use organic methods?",
+      "answer": "Yes. Organic disease management focuses on prevention: resistant varieties, crop rotation, proper plant spacing for airflow, balanced soil fertility, and removing infected residue. Approved organic fungicides include copper-based products and sulfur, though these are less effective than synthetic options. Cultural practices are the foundation of organic disease management."
     }
   ]
 }

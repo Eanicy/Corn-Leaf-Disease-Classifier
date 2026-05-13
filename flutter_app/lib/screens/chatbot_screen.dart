@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
-import '../services/nlp_chatbot.dart';
+import '../services/chatbot_service.dart';
+
+class _ChatMessage {
+  final String text;
+  final bool isUser;
+  _ChatMessage({required this.text, required this.isUser});
+}
 
 class ChatbotScreen extends StatefulWidget {
   final String? detectedDisease;
@@ -11,9 +17,10 @@ class ChatbotScreen extends StatefulWidget {
 }
 
 class _ChatbotScreenState extends State<ChatbotScreen> {
-  late NLPChatbot _chatbot;
+  final ChatbotService _chatbot = ChatbotService();
   final TextEditingController _messageController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
+  final List<_ChatMessage> _messages = [];
   bool _isInitialized = false;
   bool _isLoading = false;
 
@@ -25,68 +32,63 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
 
   Future<void> _initializeChatbot() async {
     try {
-      _chatbot = NLPChatbot();
       await _chatbot.initialize();
 
-      // Add welcome message
-      _chatbot.addMessage(
-        ChatMessage(
-          text: 'Hi! I can help you with questions about corn leaf diseases. What would you like to know?',
-          isUser: false,
-        ),
-      );
+      // Build welcome message
+      final disease = widget.detectedDisease;
+      final String welcome;
+      if (disease != null && disease.isNotEmpty && disease != 'Healthy') {
+        final d = disease.replaceAll('_', ' ');
+        welcome =
+            'Hi! I detected $d in your corn plant. Ask me anything about its symptoms, treatment, or prevention.';
+      } else {
+        welcome =
+            'Hi! I can help you with questions about corn leaf diseases. What would you like to know?';
+      }
 
       setState(() {
+        _messages.add(_ChatMessage(text: welcome, isUser: false));
         _isInitialized = true;
       });
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error initializing chatbot: $e')),
-      );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error initializing chatbot: $e')),
+        );
+      }
     }
   }
 
   Future<void> _sendMessage(String message) async {
     if (message.trim().isEmpty) return;
 
-    // Add user message
-    _chatbot.addMessage(
-      ChatMessage(text: message, isUser: true),
-    );
-    _messageController.clear();
-
     setState(() {
+      _messages.add(_ChatMessage(text: message, isUser: true));
       _isLoading = true;
     });
-
-    // Scroll to bottom
+    _messageController.clear();
     _scrollToBottom();
 
     try {
-      // Get response from chatbot
-      final response = await _chatbot.answerQuestion(
+      final response = await _chatbot.getResponse(
         message,
-        detectedDisease: widget.detectedDisease,
+        diseaseContext: widget.detectedDisease,
       );
 
-      // Add bot response
-      _chatbot.addMessage(
-        ChatMessage(text: response, isUser: false),
-      );
-
-      setState(() {
-        _isLoading = false;
-      });
-
-      _scrollToBottom();
+      if (mounted) {
+        setState(() {
+          _messages.add(_ChatMessage(text: response, isUser: false));
+          _isLoading = false;
+        });
+        _scrollToBottom();
+      }
     } catch (e) {
-      setState(() {
-        _isLoading = false;
-      });
-
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error: $e')),
-      );
+      if (mounted) {
+        setState(() => _isLoading = false);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error: $e')),
+        );
+      }
     }
   }
 
@@ -102,10 +104,6 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
     });
   }
 
-  void _suggestQuestion(String question) {
-    _messageController.text = question;
-  }
-
   @override
   Widget build(BuildContext context) {
     if (!_isInitialized) {
@@ -113,15 +111,14 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
         appBar: AppBar(
           title: const Text('Disease Chatbot'),
           elevation: 0,
+          backgroundColor: Colors.green,
         ),
-        body: const Center(
-          child: CircularProgressIndicator(),
-        ),
+        body: const Center(child: CircularProgressIndicator()),
       );
     }
 
-    final messages = _chatbot.getConversationHistory();
-    final suggestedQuestions = _chatbot.getSuggestedQuestions(disease: widget.detectedDisease);
+    final suggestedQuestions =
+        _chatbot.getSuggestedQuestions(disease: widget.detectedDisease);
 
     return Scaffold(
       appBar: AppBar(
@@ -134,96 +131,88 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
         children: [
           // Chat messages
           Expanded(
-            child: messages.isEmpty
-                ? Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.chat, size: 64, color: Colors.grey[300]),
-                        const SizedBox(height: 16),
-                        Text(
-                          'Start a conversation',
-                          style: TextStyle(color: Colors.grey[600], fontSize: 16),
-                        ),
-                      ],
+            child: ListView.builder(
+              controller: _scrollController,
+              padding: const EdgeInsets.all(16),
+              itemCount: _messages.length,
+              itemBuilder: (context, index) {
+                final msg = _messages[index];
+                return Align(
+                  alignment:
+                      msg.isUser ? Alignment.centerRight : Alignment.centerLeft,
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(vertical: 6),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 12),
+                    constraints: BoxConstraints(
+                      maxWidth: MediaQuery.of(context).size.width * 0.75,
                     ),
-                  )
-                : ListView.builder(
-                    controller: _scrollController,
-                    padding: const EdgeInsets.all(16),
-                    itemCount: messages.length,
-                    itemBuilder: (context, index) {
-                      final message = messages[index];
-                      return Align(
-                        alignment: message.isUser ? Alignment.centerRight : Alignment.centerLeft,
-                        child: Container(
-                          margin: const EdgeInsets.symmetric(vertical: 8),
-                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                          constraints: BoxConstraints(
-                            maxWidth: MediaQuery.of(context).size.width * 0.75,
-                          ),
-                          decoration: BoxDecoration(
-                            color: message.isUser ? Colors.green[600] : Colors.grey[200],
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Text(
-                            message.text,
-                            style: TextStyle(
-                              color: message.isUser ? Colors.white : Colors.black87,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ),
-                      );
-                    },
+                    decoration: BoxDecoration(
+                      color: msg.isUser ? Colors.green[600] : Colors.grey[200],
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Text(
+                      msg.text,
+                      style: TextStyle(
+                        color: msg.isUser ? Colors.white : Colors.black87,
+                        fontSize: 14,
+                      ),
+                    ),
                   ),
+                );
+              },
+            ),
           ),
 
           // Loading indicator
           if (_isLoading)
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
               child: Row(
                 children: [
-                  const SizedBox(width: 8),
                   SizedBox(
                     width: 20,
                     height: 20,
                     child: CircularProgressIndicator(
                       strokeWidth: 2,
-                      valueColor: AlwaysStoppedAnimation<Color>(Colors.green[600]!),
+                      valueColor:
+                          AlwaysStoppedAnimation<Color>(Colors.green[600]!),
                     ),
                   ),
                   const SizedBox(width: 8),
-                  const Text('Thinking...', style: TextStyle(fontSize: 12, color: Colors.grey)),
+                  const Text('Thinking…',
+                      style: TextStyle(fontSize: 12, color: Colors.grey)),
                 ],
               ),
             ),
 
-          // Suggested questions (show when no messages or just welcome)
-          if (messages.length <= 1)
+          // Suggested questions (only when just the welcome message is shown)
+          if (_messages.length <= 1)
             Padding(
-              padding: const EdgeInsets.all(12),
+              padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Padding(
-                    padding: EdgeInsets.only(left: 8, bottom: 8),
-                    child: Text('Suggested questions:', style: TextStyle(fontSize: 12, color: Colors.grey)),
+                    padding: EdgeInsets.only(left: 4, bottom: 6),
+                    child: Text('Suggested questions:',
+                        style: TextStyle(fontSize: 12, color: Colors.grey)),
                   ),
                   Wrap(
                     spacing: 8,
-                    runSpacing: 8,
+                    runSpacing: 6,
                     children: suggestedQuestions
                         .map(
-                          (question) => GestureDetector(
-                            onTap: () => _suggestQuestion(question),
+                          (q) => GestureDetector(
+                            onTap: () => _messageController.text = q,
                             child: Chip(
-                              label: Text(question, style: const TextStyle(fontSize: 12)),
+                              label: Text(q,
+                                  style: const TextStyle(fontSize: 12)),
                               backgroundColor: Colors.green[50],
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20),
-                                side: BorderSide(color: Colors.green[300]!),
+                                side:
+                                    BorderSide(color: Colors.green[300]!),
                               ),
                             ),
                           ),
@@ -239,7 +228,8 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
               color: Colors.white,
-              border: Border(top: BorderSide(color: Colors.grey[200]!)),
+              border:
+                  Border(top: BorderSide(color: Colors.grey[200]!)),
             ),
             child: Row(
               children: [
@@ -248,21 +238,27 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                     controller: _messageController,
                     enabled: !_isLoading,
                     decoration: InputDecoration(
-                      hintText: 'Ask about corn diseases...',
+                      hintText: 'Ask about corn diseases…',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(24),
-                        borderSide: BorderSide(color: Colors.grey[300]!),
+                        borderSide:
+                            BorderSide(color: Colors.grey[300]!),
                       ),
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 12),
                       isDense: true,
                     ),
-                    onSubmitted: _isLoading ? null : (text) => _sendMessage(text),
+                    onSubmitted: _isLoading
+                        ? null
+                        : (text) => _sendMessage(text),
                   ),
                 ),
                 const SizedBox(width: 8),
                 FloatingActionButton(
                   mini: true,
-                  onPressed: _isLoading ? null : () => _sendMessage(_messageController.text),
+                  onPressed: _isLoading
+                      ? null
+                      : () => _sendMessage(_messageController.text),
                   backgroundColor: Colors.green,
                   child: const Icon(Icons.send),
                 ),
@@ -278,7 +274,6 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
   void dispose() {
     _messageController.dispose();
     _scrollController.dispose();
-    _chatbot.dispose();
     super.dispose();
   }
 }

@@ -39,4 +39,6 @@ flutter:
   assets:
     - assets/models/corn_disease_classifier.tflite
     - assets/models/labels.json
+    - assets/models/intent_classifier.json
     - assets/data/disease_knowledge.json
+    - assets/data/kb_retrieval_index.json
